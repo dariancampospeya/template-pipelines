@@ -5,7 +5,7 @@ pipeline {
     environment {
        appname = "${APPNAME}"
        tag = "${TAG}"
-       env_credential = "dariancampospeya"
+       env_credential = "darian.campos"
     }
 
     stages {
@@ -22,13 +22,17 @@ pipeline {
             }
         }
 
-        {% include '${appname}/_preparation.groovy' with context %}
+        //{% include '${appname}/_preparation.groovy' with context %}
 
         
         //inject stage code
         stage('test') {
-            steps {
-                sh "echo My appname ${appname}"  
+            dir("${appname}/test"){
+                steps {
+                    sh "ls -ls"
+                    sh "pwd"
+                    sh "echo My appname ${appname}"  
+                }
             }
         }
     }
