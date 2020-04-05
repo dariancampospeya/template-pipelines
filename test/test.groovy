@@ -28,7 +28,7 @@ pipeline {
                     script{
                         def data = readFile(file: '_preparation.groovy')
                         println(data)
-                        {% include data with context %}
+                        {% include '_preparation.groovy' with context %}
                     }
 
                     sh "ls -ls"
