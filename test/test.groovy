@@ -21,7 +21,9 @@ pipeline {
             }
         }
 
-        {% include '${appname}/_preparation.groovy' with context %}
+        fp = open('${appname}/_preparation.groovy', 'r')
+
+        {% include fp with context %}
 
         
         //inject stage code
