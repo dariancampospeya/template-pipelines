@@ -35,9 +35,10 @@ pipeline {
             }
         }
         //inject stage code dev repo
-        File sourceFile = new File("test/_preparation.groovy");
-        Class groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(sourceFile);
-        GroovyObject myObject = (GroovyObject) groovyClass.newInstance();
+        GroovyShell shell = new GroovyShell()
+        def Util = shell.parse(new File("test/_preparation.groovy"))
+        Util.fetchData()
+
     }
 
 }
