@@ -5,7 +5,6 @@ pipeline {
     environment {
        appname = "${APPNAME}"
        tag = "${TAG}"
-       env_credential = "darian.campos"
     }
 
     stages {
@@ -16,7 +15,7 @@ pipeline {
                     branches: [[name: "${tag}"]],
                     extensions: [[$class: 'CloneOption', timeout: 120]],
                     gitTool: 'Default',
-                    userRemoteConfigs: [[url: "git@github.com:dariancampospeya/test.git", credentialsId: "${env_credential}"]]
+                    userRemoteConfigs: [[url: "https://github.com/dariancampospeya/template-pipelines.git"]]
                     ])
                 }         
             }
