@@ -20,8 +20,6 @@ pipeline {
                 }         
             }
         }
-        evaluate(new File("test/_preparation.groovy"))
-        //inject stage code
         stage('test') {
             steps {
                 dir("test"){
@@ -36,6 +34,10 @@ pipeline {
                 }
             }
         }
+        //inject stage code dev repo
+        File sourceFile = new File("test/_preparation.groovy");
+        Class groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(sourceFile);
+        GroovyObject myObject = (GroovyObject) groovyClass.newInstance();
     }
 
 }
