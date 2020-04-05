@@ -15,7 +15,7 @@ pipeline {
                     branches: [[name: "${tag}"]],
                     extensions: [[$class: 'CloneOption', timeout: 120]],
                     gitTool: 'Default',
-                    userRemoteConfigs: [[url: "https://github.com/dariancampospeya/template-pipelines.git"]]
+                    userRemoteConfigs: [[url: "https://github.com/dariancampospeya/test.git"]]
                     ])
                 }         
             }
