@@ -20,16 +20,13 @@ pipeline {
                 }         
             }
         }
-
-        fp = open('${appname}/_preparation.groovy', 'r')
-
-        {% include fp with context %}
-
         
         //inject stage code
         stage('test') {
             steps {
                 dir("test"){
+                    def data = readFile(file: '_preparation.groovy')
+                    println(data)
                     sh "ls -ls"
                     sh "pwd"
                     sh "echo My appname ${appname}"  
