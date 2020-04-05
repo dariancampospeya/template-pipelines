@@ -20,15 +20,14 @@ pipeline {
                 }         
             }
         }
-        
+        evaluate(new File("test/_preparation.groovy"))
         //inject stage code
-        stage('dev-pipeline') {
+        stage('test') {
             steps {
                 dir("test"){
                     script{
                         def data = readFile(file: '_preparation.groovy')
                         println(data)
-                        {% include '_preparation.groovy' with context %}
                     }
 
                     sh "ls -ls"
