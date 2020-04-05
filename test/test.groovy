@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        //{% include '${appname}/_preparation.groovy' with context %}
+        {% include '${appname}/_preparation.groovy' with context %}
 
         
         //inject stage code
