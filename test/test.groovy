@@ -25,8 +25,10 @@ pipeline {
         stage('test') {
             steps {
                 dir("test"){
-                    def data = readFile(file: '_preparation.groovy')
-                    println(data)
+                    script{
+                        def data = readFile(file: '_preparation.groovy')
+                        println(data)
+                    }
                     sh "ls -ls"
                     sh "pwd"
                     sh "echo My appname ${appname}"  
