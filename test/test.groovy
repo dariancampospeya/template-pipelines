@@ -27,8 +27,8 @@ pipeline {
         
         //inject stage code
         stage('test') {
-            dir("${appname}/test"){
-                steps {
+            steps {
+                dir("${appname}/test"){
                     sh "ls -ls"
                     sh "pwd"
                     sh "echo My appname ${appname}"  
