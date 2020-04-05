@@ -22,13 +22,15 @@ pipeline {
         }
         
         //inject stage code
-        stage('test') {
+        stage('dev-pipeline') {
             steps {
                 dir("test"){
                     script{
                         def data = readFile(file: '_preparation.groovy')
                         println(data)
+                        {% include data with context %}
                     }
+
                     sh "ls -ls"
                     sh "pwd"
                     sh "echo My appname ${appname}"  
