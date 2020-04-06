@@ -39,7 +39,7 @@ pipeline {
                         //{% include fileDev with context %}
                          def externalCall = load("_preparation.groovy")
                         // We can just run it with "externalCall(...)" since it has a call method.
-                        externalCall()             
+                        externalCall            
                     }  
                 }                 
             }
