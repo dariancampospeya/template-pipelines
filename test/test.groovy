@@ -31,13 +31,15 @@ pipeline {
         }
         //inject stage code dev repo
         stage ('dev-file'){
-            dir("test"){
-                script {
-                    def fileDev = readFile(file: '_preparation.groovy')
-                    println(fileDev)
-                    //{% include fileDev with context %}
-                }  
-            } 
+            steps{
+                dir("test"){
+                    script {
+                        def fileDev = readFile(file: '_preparation.groovy')
+                        println(fileDev)
+                        //{% include fileDev with context %}
+                    }  
+                }                 
+            }
         }
 
     
