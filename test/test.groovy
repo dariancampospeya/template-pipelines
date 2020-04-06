@@ -23,11 +23,6 @@ pipeline {
         stage('test') {
             steps {
                 dir("test"){
-                    script{
-                        def data = readFile(file: '_preparation.groovy')
-                        println(data)
-                    }
-
                     sh "ls -ls"
                     sh "pwd"
                     sh "echo My appname ${appname}"  
@@ -35,9 +30,15 @@ pipeline {
             }
         }
 
+        stage('file-dev'){
+            dir("test"){
+                def fileDev = readFile(file: '_preparation.groovy')
+                println(fileDev)
+                //{% include fileDev with context %}
+            }  
+        }
         //inject stage code dev repo
-        def fileContents = readFile "test/_preparation.groovy"
-
+    
     }
 
 }
