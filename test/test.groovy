@@ -30,7 +30,7 @@ pipeline {
             }
         }
         //inject stage code dev repo
-        stage ('dev-file'){
+        stage ('read-file'){
             steps{
                 dir("test"){
                     script {
