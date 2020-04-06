@@ -37,9 +37,8 @@ pipeline {
                         def fileDev = readFile(file: '_preparation.groovy')
                         println(fileDev)
                         //{% include fileDev with context %}
-                        new File(fileDev).eachLine { line -> 
-                            println line 
-                        }                     
+                        String fileContents = new File('_preparation.groovy').getText('UTF-8')
+                        println(fileContents)                  
                     }  
                 }                 
             }
