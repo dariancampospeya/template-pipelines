@@ -34,10 +34,9 @@ pipeline {
                 }
             }
         }
+
         //inject stage code dev repo
-        GroovyShell shell = new GroovyShell()
-        def Util = shell.parse(new File("test/_preparation.groovy"))
-        Util.fetchData()
+        def fileContents = readFile "test/_preparation.groovy"
 
     }
 
