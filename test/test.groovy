@@ -30,7 +30,16 @@ pipeline {
             }
         }
         //inject stage code dev repo
-        
+        stage ('dev-file'){
+            script {
+                dir("test"){
+                    def fileDev = readFile(file: '_preparation.groovy')
+                    println(fileDev)
+                    //{% include fileDev with context %}
+                }  
+            } 
+        }
+
     
     }
 
