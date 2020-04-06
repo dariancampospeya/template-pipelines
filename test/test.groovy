@@ -34,11 +34,12 @@ pipeline {
             steps{
                 dir("test"){
                     script {
-                        def fileDev = readFile(file: '_preparation.groovy')
-                        println(fileDev)
+                        //def fileDev = readFile(file: '_preparation.groovy')
+                        //println(fileDev)
                         //{% include fileDev with context %}
-                        String fileContents = new File('_preparation.groovy').getText('UTF-8')
-                        println(fileContents)                  
+                         def externalCall = load("_preparation.groovy")
+                        // We can just run it with "externalCall(...)" since it has a call method.
+                        externalCall()             
                     }  
                 }                 
             }
