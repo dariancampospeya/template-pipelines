@@ -29,12 +29,14 @@ pipeline {
                 }
             }
         }
-        dir("test"){
-            def fileDev = readFile(file: '_preparation.groovy')
-            println(fileDev)
-            //{% include fileDev with context %}
-        }  
         //inject stage code dev repo
+        script {
+            dir("test"){
+                def fileDev = readFile(file: '_preparation.groovy')
+                println(fileDev)
+                //{% include fileDev with context %}
+            }  
+        }
     
     }
 
