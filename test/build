@@ -3,8 +3,8 @@ pipeline {
    
     //add environment
     environment {
-       appname = "${APPNAME}"
-       tag = "${TAG}"
+       appname = "${appname}"
+       tag = "${tag}"
     }
 
     stages {
@@ -34,11 +34,7 @@ pipeline {
             steps{
                 dir("test"){
                     script {
-                        //def fileDev = readFile(file: '_preparation.groovy')
-                        //println(fileDev)
-                        //{% include fileDev with context %}
                          def externalCall = load("_preparation.groovy")
-                        // We can just run it with "externalCall(...)" since it has a call method.
                         externalCall            
                     }  
                 }                 
